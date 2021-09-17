@@ -1,0 +1,240 @@
+<html>
+<script type="text/javascript">
+
+(function(e,t){var n=e.amplitude||{_q:[],_iq:{}};var r=t.createElement("script")
+;r.type="text/javascript";r.async=true
+;r.src="https://cdn.amplitude.com/libs/amplitude-4.5.2-min.gz.js"
+;r.onload=function(){if(e.amplitude.runQueuedFunctions){
+e.amplitude.runQueuedFunctions()}else{
+console.log("[Amplitude] Error: could not load SDK")}}
+;var i=t.getElementsByTagName("script")[0];i.parentNode.insertBefore(r,i)
+;function s(e,t){e.prototype[t]=function(){
+this._q.push([t].concat(Array.prototype.slice.call(arguments,0)));return this}}
+var o=function(){this._q=[];return this}
+;var a=["add","append","clearAll","prepend","set","setOnce","unset"]
+;for(var u=0;u<a.length;u++){s(o,a[u])}n.Identify=o;var c=function(){this._q=[]
+;return this}
+;var l=["setProductId","setQuantity","setPrice","setRevenueType","setEventProperties"]
+;for(var p=0;p<l.length;p++){s(c,l[p])}n.Revenue=c
+;var d=["init","logEvent","logRevenue","setUserId","setUserProperties","setOptOut","setVersionName","setDomain","setDeviceId","setGlobalUserProperties","identify","clearUserProperties","setGroup","logRevenueV2","regenerateDeviceId","groupIdentify","logEventWithTimestamp","logEventWithGroups","setSessionId","resetSessionId"]
+;function v(e){function t(t){e[t]=function(){
+e._q.push([t].concat(Array.prototype.slice.call(arguments,0)))}}
+for(var n=0;n<d.length;n++){t(d[n])}}v(n);n.getInstance=function(e){
+e=(!e||e.length===0?"$default_instance":e).toLowerCase()
+;if(!n._iq.hasOwnProperty(e)){n._iq[e]={_q:[]};v(n._iq[e])}return n._iq[e]}
+;e.amplitude=n})(window,document);
+
+/*amplitude.getInstance().init('f2a1eb0618aead89d1caa1624b923ed6', null, {
+    saveEvents: true,
+    includeUtm: true,
+    includeReferrer: true
+});*/
+    
+let amplitudeInstance = amplitude.getInstance("SoccerFreak");
+amplitudeInstance.init('f2a1eb0618aead89d1caa1624b923ed6');
+
+amplitudeInstance.logEvent("Page Loaded from Amplitude");
+amplitude.setVersionName('2.8.0'); //current version of this application
+
+// 86acbd31cd7c09cf30acb66d2fbedc91daa48b86:1631900055.9546762
+!function(n,r,e,t,c){var i,o="Promise"in n,u={then:function(){return u},catch:function(n){
+return n(new Error("Airship SDK Error: Unsupported browser")),u}},s=o?new Promise((function(n,r){i=function(e,t){e?r(e):n(t)}})):u
+;s._async_setup=function(n){if(o)try{i(null,n(c))}catch(n){i(n)}},n[t]=s;var a=r.createElement("script");a.src=e,a.async=!0,a.id="_uasdk",
+a.rel=t,r.head.appendChild(a)}(window,document,'https://aswpsdkus.com/notify/v1/ua-sdk.min.js',
+  'UA', {
+    vapidPublicKey: 'BDBHr2qUUEhpMlCWUrswdzTWi5VWg2CRDBHEOwnZGlh5d7MPLWcnlRhpeIN4he-reu8IotVPtOGz2FhB_fUiwpo=',
+    appKey: 'LlxCqi4xRASkLbp6jJWNnw',
+    token: 'MTpMbHhDcWk0eFJBU2tMYnA2akpXTm53OnkxWXNvUXc0SkxOYzRIR3BYWjU2TFdYMXd2NVg0cGxCdVNENGdpX28xLXc'
+  });
+
+  UA.then(sdk => {
+  sdk.register() // Returns Channel object
+})
+
+  UA.then(sdk => {
+ sdk.getChannel().then(channel => {
+   console.log("Channel ID: %s", channel.id)
+ })
+})
+
+</script>
+    <header>
+        <title>JS SDK EXAMPLE</title>
+    </header>
+
+    <body>
+        <h1>Log events via the JS SDK!</h1>
+        
+        <p id="currentUser">There is no user logged in! This program logs events as Anonymous when there is no user logged in.</p>
+        
+        <p><label for="fname">Full name:</label><br>
+        <input type="text" id="UserID" name="fname"/>
+            
+        <p><label>Favorite food:</label><br>
+            <input type="text" id="favfood"/></p>
+        
+        <p><label>Age:</label><br>
+            <input type="text" id="age"/></p>
+        </p>
+    
+         <p><label>Color of your current shirt:</label><br>
+            <input type="text" id="color"/></p>
+    
+        <p><label>Day of the week:</label><br>
+            <input type="text" id="height"/></p>
+    
+        <button onclick="setUserID();userProps();">Log In</button>
+    
+        <p><button onclick="logevent()">Log event 1</button>
+        <button onclick="logevent2()">Log event 2</button>
+        <button onclick="logevent3()">Log event 3</button>
+        <p id="event">No events have been logged...</p></p>
+    
+        <p>
+            <label for="cars">Purchase an item:</label>
+            <select name="item" id="items">
+                <option value="socks">Socks</option>
+                <option value="Playstation 5">Playstation 5</option>
+                <option value="bananas">Banana</option>
+                <option value="earrings">Earrings</option>
+            </select>
+            <br><br>
+            <label for="amount">Quantity:</label>
+            <select name="quantities" id="quantity">
+                <option value=1>1</option>
+                <option value=2>2</option>
+                <option value=3>3</option>
+                <option value=4>4</option>
+            </select>
+            <p id="purchase">No items have been purchased... :(</p>
+            <button onclick="item()">Purchase</button>
+        </p>    
+    
+        <p>
+            <button onclick="logOut()">Log Out</button>
+        </p> 
+
+    <a href="https://elgaona.github.io/segmentserverside/">https://elgaona.github.io/segmentserverside/</a>
+    </body>
+    
+    <script>
+    
+    function userProps() {
+        
+        var food = document.getElementById("favfood").value; //Save the users favorite food
+        
+        var age = document.getElementById("age").value; //Save the users age
+        
+        var user = document.getElementById("UserID").value; //Save the users full name
+        
+        var identify = new amplitude.Identify().set('Favorite Food', food).set('age', age).set('Full Name', user);
+        amplitude.getInstance().identify(identify); //Set the user properties of the user
+    }
+    
+    function setUserID() {
+
+        var user = document.getElementById("UserID").value; //Save the full name of the user which will end up being their User ID in Amplitude
+        
+
+        if(user == "") {
+            document.getElementById("currentUser").innerHTML = "There is no user logged in! This program logs events as Anonymous when there is no user logged in."; //If the name field is empty then there is no point in saving the User ID. Events will be tracked anonymously until someone logs in
+        }
+        else {
+            document.getElementById("currentUser").innerHTML = user + " is logged in and events will be recorded under this user!";
+            amplitude.getInstance().setUserId(user); //Set the User ID of the user into Amplitude
+            amplitude.getInstance().logEvent('Signed In'); //Log a sign in event
+        }
+    }
+        
+    function logOut() {
+        amplitude.getInstance().logEvent('Signed Out'); //Log a sign out event
+        
+        console.log(amplitude.getInstance().isNewSession()); //check if the session number has changed
+        
+        document.getElementById("currentUser").innerHTML = "There is no user logged in! This program logs events as Anonymous when there is no user logged in.";
+        document.getElementById("event").innerHTML = "Anonymous user will start logging events."
+        document.getElementById("UserID").value = ""; //Reset the full name field
+        document.getElementById("favfood").value = ""; //Reset the favorite food field
+        document.getElementById("age").value = ""; //Reset the age field
+        document.getElementById("color").value = "";
+        document.getElementById("height").value = "";
+        document.getElementById("purchase").innerHTML = "No items have been purchased... :(";
+    
+        amplitude.getInstance().setUserId(null); // not string 'null'
+        amplitude.getInstance().regenerateDeviceId(); //When the log out happens regenerate the device id in order to capture events anonymously
+    }
+        
+    function logevent() {
+        
+        var user = document.getElementById("UserID").value; //Grab the value of the User ID
+        var colorShirt = document.getElementById("color").value;
+        var height = document.getElementById("height").value;
+        
+        document.getElementById("event").innerHTML = user + " logged Event #1!";
+        var eventProperties = {
+            color: colorShirt,
+            height: height
+        };
+        amplitude.getInstance().logEvent('Button Clicked', eventProperties)
+    }
+    function logevent2() {
+        
+        var user = document.getElementById("UserID").value; //Grab the value of the User ID
+        var colorShirt = document.getElementById("color").value;
+        var height = document.getElementById("height").value;
+        
+        document.getElementById("event").innerHTML = user + " logged Event #2!"
+        var eventProperties = {
+            color: colorShirt,
+            height: height
+        };
+        amplitude.getInstance().logEvent('Button_Clicked2', eventProperties);
+    }
+    function logevent3() {
+        
+        var user = document.getElementById("UserID").value; //Grab the value of the User ID
+        var colorShirt = document.getElementById("color").value;
+        var height = document.getElementById("height").value;
+        
+        document.getElementById("event").innerHTML = user + " logged Event #3!"
+        var eventProperties = {
+            color: colorShirt,
+            height: height
+        };
+        amplitude.getInstance().logEvent('Button_Clicked3', eventProperties)
+    }
+        
+    function item() {
+        
+        var quantity = document.getElementById("quantity").value;
+        var x = parseInt(quantity);
+        console.log(x);
+        
+        if(document.getElementById("items").value == "socks") {
+            document.getElementById("purchase").innerHTML = "Thank you for purchasing " + x + " " + document.getElementById("items").value + "! :D";
+            var revenue = new amplitude.Revenue().setProductId(document.getElementById("items").value).setPrice(11.99).setQuantity(x).setRevenueType("income");
+            console.log(revenue);
+            amplitude.getInstance().logRevenueV2(revenue);
+        }
+        else if(document.getElementById("items").value == "Playstation 5") {
+            document.getElementById("purchase").innerHTML = "Thank you for purchasing " + x + " " + document.getElementById("items").value + "! :D";
+            var revenue = new amplitude.Revenue().setProductId(document.getElementById("items").value).setPrice(399.99).setQuantity(x).setRevenueType("income");
+            console.log(revenue);
+            amplitude.getInstance().logRevenueV2(revenue);
+        }
+        else if(document.getElementById("items").value == "bananas") {
+            document.getElementById("purchase").innerHTML = "Thank you for purchasing " + x + " " + document.getElementById("items").value + "! :D";
+            var revenue = new amplitude.Revenue().setProductId(document.getElementById("items").value).setPrice(0.59).setQuantity(x).setRevenueType("income");
+            console.log(revenue);
+            amplitude.getInstance().logRevenueV2(revenue);
+        }
+        else if(document.getElementById("items").value == "earrings") {
+            document.getElementById("purchase").innerHTML = "Thank you for purchasing " + x + " " + document.getElementById("items").value + "! :D";
+            var revenue = new amplitude.Revenue().setProductId(document.getElementById("items").value).setPrice(57.38).setQuantity(x).setRevenueType("income");
+            console.log(revenue);
+            amplitude.getInstance().logRevenueV2(revenue);
+        }
+    }
+    </script>
+    
+</html>
